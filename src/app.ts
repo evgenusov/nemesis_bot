@@ -18,6 +18,10 @@ app.post('/webhook', (req, res) => {
         body.data.text,
         config.TRIGGER_WORDS,
       );
+      const isItself = body.data.creator.id === config.BOT_ID;
+      if (isItself) {
+        return res.sendStatus(200);
+      }
       if (commentsHasTriggerWord) {
         sendCommentWithChance(body.data.content.id, body.data.id, 100);
       } else {
