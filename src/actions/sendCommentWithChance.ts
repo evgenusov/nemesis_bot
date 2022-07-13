@@ -1,3 +1,4 @@
+import {config} from '../config/config';
 import {ATTACHMENTS} from '../consts/attachments';
 import {PHRASES} from '../consts/phrases';
 import {DTFApi} from '../services/DTFApi';
@@ -14,7 +15,7 @@ export const sendCommentWithChance = async (
   if (randomInt <= chance) {
     const randomPhrase = getRandomItemFromArray(PHRASES);
     const attachments =
-      randomToUseAttachment <= 40
+      randomToUseAttachment <= config.CHANCE_TO_USE_ATTACHMENTS
         ? [getRandomItemFromArray(ATTACHMENTS)]
         : undefined;
 

@@ -28,7 +28,7 @@ export const DTFApi = {
         text: comment,
         id: articleId,
         reply_to: replyId,
-        attachments,
+        attachments: attachments ? JSON.stringify(attachments) : undefined,
       },
       {
         headers: DEFAULT_HEADERS,

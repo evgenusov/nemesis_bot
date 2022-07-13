@@ -11,4 +11,6 @@ export const config: IConfigBase = {
   TRIGGER_WORDS: ['LIST', 'OF', 'TRIGGER', 'WORDS'],
 
   BOT_ID: 585125,
+
+  CHANCE_TO_USE_ATTACHMENTS: 35,
 };
