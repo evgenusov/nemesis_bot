@@ -42,6 +42,13 @@ describe('all tests', () => {
     expect(result).toBe(true);
   });
 
+  it('should not find trigger words', () => {
+    const text = 'Это комментарий который содержит триггер слово Леонардо';
+    const triggerWords = ['джилл'];
+    const result = containsTriggerWords(text, triggerWords);
+    expect(result).toBe(false);
+  });
+
   it('should trigger on comment with trigger word', async () => {
     const mockedSendCommentWithChance = jest.fn();
     jest

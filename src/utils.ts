@@ -7,7 +7,10 @@ export const getRandomItemFromArray = <T>(array: T[]) => {
 };
 
 export const containsTriggerWords = (text: string, triggerWords: string[]) => {
-  return triggerWords.some(triggerWord =>
-    text.toLowerCase().includes(triggerWord.toLowerCase()),
-  );
+  const chunks = text.split(' ');
+  return triggerWords.some(triggerWord => {
+    return chunks.some(chunk => {
+      return chunk.toLowerCase() === triggerWord.toLowerCase();
+    });
+  });
 };
