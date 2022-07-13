@@ -25,7 +25,7 @@ export const DTFApi = {
       {
         text: comment,
         id: articleId,
-        replyId: replyId,
+        reply_to: replyId,
       },
       {
         headers: DEFAULT_HEADERS,

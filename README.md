@@ -22,5 +22,5 @@ $ yarn build
 
 4. Run
 ```bash
-$ yarn run
+$ yarn serve
 ```

@@ -18,15 +18,16 @@ app.post('/webhook', (req, res) => {
         body.data.text,
         config.TRIGGER_WORDS,
       );
-
-      if (body.data.content.owner.url === config.SITE_URL) {
-        sendCommentWithChance(
-          body.data.content.id,
-          body.data.id,
-          config.CHANCE_TO_SEND_COMMENT,
-        );
-      } else if (commentsHasTriggerWord) {
+      if (commentsHasTriggerWord) {
         sendCommentWithChance(body.data.content.id, body.data.id, 100);
+      } else {
+        if (body.data.content.owner.url === config.SITE_URL) {
+          sendCommentWithChance(
+            body.data.content.id,
+            body.data.id,
+            config.CHANCE_TO_SEND_COMMENT,
+          );
+        }
       }
     }
 
