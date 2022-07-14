@@ -18,10 +18,15 @@ app.post('/webhook', (req, res) => {
         body.data.text,
         config.TRIGGER_WORDS,
       );
+      const isSafeRoom = config.IGNORE_WORDS.some(word =>
+        body.data.content.title.includes(word),
+      );
       const isItself = body.data.creator.id === config.BOT_ID;
-      if (isItself) {
+      
+      if (isItself || isSafeRoom) {
         return res.sendStatus(200);
       }
+
       if (commentsHasTriggerWord) {
         sendCommentWithChance(body.data.content.id, body.data.id, 100);
       } else {

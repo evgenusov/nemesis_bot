@@ -13,4 +13,6 @@ export const config: IConfigBase = {
   BOT_ID: 585125,
 
   CHANCE_TO_USE_ATTACHMENTS: 35,
+
+  IGNORE_WORDS: ['Safe room'],
 };

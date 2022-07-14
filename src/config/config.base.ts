@@ -20,4 +20,6 @@ export interface IConfigBase {
   // WE NEED THIS TO AVOID BOT TO SEND COMMENT TO ITSELF
   BOT_ID: number;
 
+  // IGNORE WORDS TO AVOID BOT TO SEND COMMENT THERE
+  IGNORE_WORDS: string[];
 }
