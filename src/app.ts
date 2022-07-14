@@ -19,10 +19,10 @@ app.post('/webhook', (req, res) => {
         config.TRIGGER_WORDS,
       );
       const isSafeRoom = config.IGNORE_WORDS.some(word =>
-        body.data.content.title.includes(word),
+        body.data.content.title.toLowerCase().includes(word.toLowerCase()),
       );
       const isItself = body.data.creator.id === config.BOT_ID;
-      
+
       if (isItself || isSafeRoom) {
         return res.sendStatus(200);
       }
