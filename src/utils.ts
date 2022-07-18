@@ -10,7 +10,7 @@ export const containsTriggerWords = (text: string, triggerWords: string[]) => {
   const chunks = text.split(' ');
   return triggerWords.some(triggerWord => {
     return chunks.some(chunk => {
-      return chunk.toLowerCase() === triggerWord.toLowerCase();
+      return chunk.toLowerCase().includes(triggerWord.toLowerCase());
     });
   });
 };
